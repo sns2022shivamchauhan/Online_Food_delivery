@@ -60,7 +60,7 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if (\Auth::attempt($request->only('email','password'), $request->get('remember'))){
+        if (Auth::attempt($request->only('email','password'), $request->get('remember'))){
             return redirect()->intended($this->redirectTo);
         }
 

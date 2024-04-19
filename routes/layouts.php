@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthCustomer\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -46,7 +47,8 @@ use App\Http\Controllers\tables\Basic as TablesBasic;
 use Symfony\Component\HttpKernel\HttpCache\Store;
 
 // Main Page Route
-Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
+Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 // layout
 Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
@@ -62,11 +64,11 @@ Route::get('/pages/account-settings-connections', [AccountSettingsConnections::c
 Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
 Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
 
-// authentication
-Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
-Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
-Route::post('/auth/register-basic', [RegisterBasic::class, 'store'])->name('auth-register-basic-store');
-Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
+// // authentication
+// Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
+// Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
+// Route::post('/auth/register-basic', [RegisterBasic::class, 'store'])->name('auth-register-basic-store');
+// Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
 
 // cards
 Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
