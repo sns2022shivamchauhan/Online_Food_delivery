@@ -23,7 +23,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = "/frontend/index";
+    protected $redirectTo = "/home";
 
     public function __construct()
     {
@@ -32,7 +32,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('frontend.pages.login');
+        return view('content.auth-customer.login');
     }
 
     protected function guard()

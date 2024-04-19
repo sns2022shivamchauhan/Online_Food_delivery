@@ -28,7 +28,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/frontend/index";
+    protected $redirectTo = "/home";
 
     /**
      * Display the password reset view for the given token.

@@ -17,19 +17,20 @@
       <div class="card p-2">
         <!-- Logo -->
         <div class="app-brand justify-content-center mt-5">
-          <a href="{{route('customer.register')}}" class="app-brand-link gap-2">
+          <a href="" class="app-brand-link gap-2">
             <span class="app-brand-logo demo">@include('_partials.macros',["height"=>20])</span>
             <span class="app-brand-text demo text-heading fw-semibold">{{ config('variables.templateName') }}</span>
           </a>
         </div>
         <!-- /Logo -->
         <div class="card-body mt-2">
-          <h4 class="mb-2">Adventure starts here 🚀</h4>
+          <h4 class="mb-2">Customer Register here 🚀</h4>
           <p class="mb-4">Make your app management easy and fun!</p>
 
-          <form id="formAuthentication" class="mb-3" action="{{url('/')}}" method="GET">
+          <form id="formAuthentication" class="mb-3" action="{{route('customer.register')}}" method="post">
+            @csrf
             <div class="form-floating form-floating-outline mb-3">
-              <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus>
+              <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your username" autofocus>
               <label for="username">Username</label>
             </div>
             <div class="form-floating form-floating-outline mb-3">
@@ -55,7 +56,7 @@
                 </label>
               </div>
             </div>
-            <button class="btn btn-primary d-grid w-100">
+            <button type="submit" class="btn btn-primary form-group d-grid w-100">
               Sign up
             </button>
           </form>
