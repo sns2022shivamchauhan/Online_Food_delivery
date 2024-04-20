@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\HomeController;
 use App\Http\Controllers\Auth\OrderController;
 use App\Http\Controllers\Auth\LoginController;
@@ -12,6 +13,10 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 require 'layouts.php';
 require 'customer.php';
 
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/categories/create', [CategoryController::class, 'index'])->name('categories.create');
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
@@ -37,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
       Route::post('email/resend', 'VerificationController@resend')->name('verification.resend');
   });
 
-      Route::get('/home', [HomeController::class, 'index'])->name('home');
+
       Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 
 
