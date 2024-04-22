@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Models\Frontend;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BillingInfo extends Model
+class Item extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-
-   
 }

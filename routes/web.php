@@ -48,6 +48,8 @@ Route::middleware(['auth'])->group(function () {
 
     // items
     Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
+    Route::get('/items/store', [ItemController::class, 'store'])->name('items.store');
+
   });
 
 

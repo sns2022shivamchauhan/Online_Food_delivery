@@ -19,7 +19,7 @@
       "slug": "Inventory",
       "submenu": [
         {
-          "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/dashboard/crm",
+          "url": "/items/create",
           "name": "Items",
           "slug": "inventory-items",
           "target": "_blank"
