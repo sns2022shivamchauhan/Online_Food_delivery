@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-          $table->bigIncrements('id');
-          $table->string('name');
-          $table->enum('is_pizza', ['active', 'inactive'])->default('active');
-          $table->enum('category_status', ['active', 'inactive'])->default('active');
-          $table->timestamps();
+        $table->bigIncrements('id');
+        $table->string('name');
+        $table->boolean('category_status')->default(true);
+        $table->string('timing')->nullable();
+        $table->string('image')->nullable();
+        $table->timestamps();
         });
     }
 

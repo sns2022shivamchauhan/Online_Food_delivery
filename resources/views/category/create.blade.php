@@ -24,20 +24,40 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label text-sm-start">Is Pizza</label>
-                            <div class="col-sm-10">
-                                <div class="form-check mb-2">
-                                    <input name="is_pizza" class="form-check-input" type="radio" value="active"
-                                        id="is_pizza_active" checked>
-                                    <label class="form-check-label" for="is_pizza_active">Active</label>
-                                </div>
-                                <div class="form-check">
-                                    <input name="is_pizza" class="form-check-input" type="radio" value="inactive"
-                                        id="is_pizza_inactive">
-                                    <label class="form-check-label" for="is_pizza_inactive">Inactive</label>
-                                </div>
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Item Mapped</label>
+                          <div class="col-sm-10">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="option1" id="option1" name="items[]">
+                                  <label class="form-check-label" for="option1">Option 1</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="option2" id="option2" name="items[]">
+                                  <label class="form-check-label" for="option2">Option 2</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="option3" id="option3" name="items[]">
+                                  <label class="form-check-label" for="option3">Option 3</label>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Item Mapped with Category</label>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option1" id="option1" name="items[]">
+                                <label class="form-check-label" for="option1">Option 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option2" id="option2" name="items[]">
+                                <label class="form-check-label" for="option2">Option 2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option3" id="option3" name="items[]">
+                                <label class="form-check-label" for="option3">Option 3</label>
                             </div>
                         </div>
+                    </div>
+
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label text-sm-start">Category Status</label>
                             <div class="col-sm-10">
