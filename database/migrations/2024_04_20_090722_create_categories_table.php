@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
         $table->bigIncrements('id');
         $table->string('name');
-        $table->boolean('category_status')->default(true);
-        $table->string('timing')->nullable();
         $table->string('image')->nullable();
+        $table->longText('description')->nullable(); 
+        $table->boolean('is_active')->default(true);
+        $table->integer('sort_order')->default(0);
         $table->timestamps();
         });
     }
