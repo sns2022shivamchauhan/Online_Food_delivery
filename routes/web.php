@@ -33,7 +33,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
 Route::middleware(['auth'])->group(function () {
 
   Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
-      // Route::get('/home', [HomeController::class, 'index'])->name('home');
+      Route::get('/home', [HomeController::class, 'index'])->name('home');
       Route::get('logout', 'LoginController@logout')->name('logout');
       Route::get('password/confirm', 'ConfirmPasswordController@showConfirmForm')->name('password.confirm');
       Route::post('password/confirm', 'ConfirmPasswordController@confirm')->name('password.confirm');

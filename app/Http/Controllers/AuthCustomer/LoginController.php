@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\AuthCustomer;
-
-
+use App\Providers\RouteServiceProvider;
+use App\Models\customer\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -23,7 +23,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = "/home";
+    protected $redirectTo ='content.auth-customer.index';
 
     public function __construct()
     {
@@ -37,12 +37,13 @@ class LoginController extends Controller
 
     protected function guard()
     {
-        return Auth::guard("customer-web");
+        return Auth::guard('customer-web');
     }
+
 
     public function logout(Request $request)
     {
-        Auth::guard("customer-web")->logout();
+        Auth::guard('customer-web')->logout();
         return redirect()->route('customer.login')->with('success', 'You have been logged out..');
     }
 

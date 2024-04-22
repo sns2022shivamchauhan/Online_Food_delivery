@@ -30,8 +30,8 @@
           <form id="formAuthentication" class="mb-3" action="{{route('login.store')}}" method="post">
             @csrf
             <div class="form-floating form-floating-outline mb-3">
-              <input type="text" class="form-control" id="email" name="username" placeholder="Enter your email or username" autofocus>
-              <label for="email">Email or Username</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email or username" autofocus>
+              <label for="email">Email</label>
             </div>
             <div class="mb-3">
               <div class="form-password-toggle">

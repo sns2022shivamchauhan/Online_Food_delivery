@@ -47,7 +47,7 @@ class RegisterController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('guest');
+    $this->middleware('guest')->except('logout');
   }
 
   /**
@@ -55,10 +55,10 @@ class RegisterController extends Controller
    *
    * @return \Illuminate\View\View
    */
-  // public function showRegistrationForm()
-  // {
-  //   return view('content.auth-customer.register');
-  // }
+  public function showRegistrationForm()
+  {
+    return view('content.auth-customer.register');
+  }
 
   /**
    * Get a validator for an incoming registration request.

@@ -12,14 +12,15 @@ use App\Http\Controllers\AuthCustomer\CustomrController;
 use App\Http\Controllers\AuthCustomer\HomeController;
 
 
+require 'layouts.php';
 
 // Guest Routes
 Route::group(['namespace' => 'App\Http\Controllers\AuthCustomer'], function () {
   Route::middleware(['guest:customer-web'])->group(function () {
     Route::get('/frontend/register', [RegisterController::class, 'showRegistrationForm'])->name('customer.register');
-    Route::post('/frontend/register', [RegisterController::class, 'register'])->name('customer.register');
+    Route::post('/frontend/register/store', [RegisterController::class, 'register'])->name('register');
     Route::get('/frontend/login', [LoginController::class, 'showLoginForm'])->name('customer.login');
-    Route::post('/frontend/login', [LoginController::class, 'customer_login'])->name('customer.login');
+    Route::post('/frontend/login/store', [LoginController::class, 'customer_login'])->name('customer.login');
     Route::get('/frontend/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('customer.password.request');
     Route::post('/frontend/password/reset', [ForgotPasswordController::class, 'reset'])->name('customer.password.update');
     Route::post('/frontend/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('customer.password.email');

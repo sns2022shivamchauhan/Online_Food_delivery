@@ -24,10 +24,10 @@
         </div>
         <!-- /Logo -->
         <div class="card-body mt-2">
-          <h4 class="mb-2">Customer Register here 🚀</h4>
+          <h4 class="mb-2">Customer Register here 🚀 Nishi</h4>
           <p class="mb-4">Make your app management easy and fun!</p>
 
-          <form id="formAuthentication" class="mb-3" action="{{route('customer.register')}}" method="post">
+          <form id="formAuthentication" class="mb-3" action="{{route('register')}}" method="post">
             @csrf
             <div class="form-floating form-floating-outline mb-3">
               <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your username" autofocus>

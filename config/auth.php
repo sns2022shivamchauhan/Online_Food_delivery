@@ -75,7 +75,7 @@ return [
 
         'customers' => [
           'driver' => 'eloquent',
-          'model' => App\Models\Restaurant\Customer::class,
+          'model' => App\Models\customer\Customer::class,
       ],
 
         // 'users' => [
