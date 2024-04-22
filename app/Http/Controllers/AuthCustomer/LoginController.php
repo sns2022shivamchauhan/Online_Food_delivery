@@ -23,7 +23,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo ='content.auth-customer.index';
+    protected $redirectTo ='frontend.home';
 
     public function __construct()
     {

@@ -30,6 +30,7 @@ Route::group(['namespace' => 'App\Http\Controllers\AuthCustomer'], function () {
 
 // Auth Routes
 Route::middleware(['auth:customer-web'])->group(function () {
+  Route::get('/frontend/home', [HomeController::class, 'index'])->name('frontend.home');
   Route::post('/frontend/logout', [LoginController::class, 'logout'])->name('customer.logout');
   route::get('/frontend/profile', [CustomrController::class, 'index'])->name('customer.profile.index');
   route::put('/frontend/profile', [CustomrController::class, 'profile_update'])->name('customer.profile.update');

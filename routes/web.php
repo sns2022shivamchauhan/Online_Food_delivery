@@ -15,14 +15,8 @@ require 'layouts.php';
 require 'customer.php';
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-// category
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// items
-Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
 
 
 
@@ -40,17 +34,22 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
 Route::middleware(['auth'])->group(function () {
 
   Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
-      Route::get('/home', [HomeController::class, 'index'])->name('home');
-      Route::get('logout', 'LoginController@logout')->name('logout');
-      Route::get('password/confirm', 'ConfirmPasswordController@showConfirmForm')->name('password.confirm');
-      Route::post('password/confirm', 'ConfirmPasswordController@confirm')->name('password.confirm');
-      Route::get('email/verify', 'VerificationController@show')->name('verification.notice');
-      Route::get('email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify');
-      Route::post('email/resend', 'VerificationController@resend')->name('verification.resend');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+    Route::get('password/confirm', 'ConfirmPasswordController@showConfirmForm')->name('password.confirm');
+    Route::post('password/confirm', 'ConfirmPasswordController@confirm')->name('password.confirm');
+    Route::get('email/verify', 'VerificationController@show')->name('verification.notice');
+    Route::get('email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify');
+    Route::post('email/resend', 'VerificationController@resend')->name('verification.resend');
+    // category
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+
+    // items
+    Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
   });
 
 
-      Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-
-
+  Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 });
