@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Auth\HomeController;
 use App\Http\Controllers\Auth\OrderController;
 use App\Http\Controllers\Auth\LoginController;
@@ -15,8 +16,14 @@ require 'customer.php';
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+// category
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 
-Route::get('/categories/create', [CategoryController::class, 'index'])->name('categories.create');
+// items
+Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
+
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
