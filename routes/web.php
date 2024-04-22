@@ -41,17 +41,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('email/verify', 'VerificationController@show')->name('verification.notice');
     Route::get('email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify');
     Route::post('email/resend', 'VerificationController@resend')->name('verification.resend');
-    // category
-    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-
-    // items
-    Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
-    Route::get('/items/store', [ItemController::class, 'store'])->name('items.store');
 
   });
 
 
   Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 });
+ // category
+ Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+ Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
+ Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
