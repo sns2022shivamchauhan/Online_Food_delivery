@@ -9,7 +9,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-
+use App\Http\Controllers\ModifierController;
+use App\Http\Controllers\ModifierGroupController;
+use App\Models\Modifier;
+use PhpParser\Node\Expr\AssignOp\Mod;
 
 require 'layouts.php';
 require 'customer.php';
@@ -53,6 +56,12 @@ Route::post('/categories/store', [CategoryController::class, 'store'])->name('ca
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
-Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+Route::get('/mdgroup', [ModifierGroupController::class, 'index'])->name('mdgroup.index');
+Route::get('/mdgroup/create', [ModifierGroupController::class, 'create'])->name('mdgroup.create');
+Route::post('/mdgroup/store', [ModifierGroupController::class, 'store'])->name('mdgroup.store');
+Route::get('/mdgroup/{mdgroup}/edit', [ModifierGroupController::class, 'edit'])->name('mdgroup.edit');
+Route::get('/modifier', [ModifierController::class, 'index'])->name('modifier.index');
+Route::get('/modifier/create', [ModifierController::class, 'create'])->name('modifier.create');
+Route::post('/modifier/store', [ModifierController::class, 'store'])->name('modifier.store');
 
-Route::resource('items', ItemController::class);
+

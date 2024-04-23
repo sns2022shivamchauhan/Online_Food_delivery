@@ -13,6 +13,8 @@ class ModifierGroupController extends Controller
     public function index()
     {
         //
+        $modifierGroups = ModifierGroup::all();
+        return view('modifier_group.index', compact('modifierGroups'));
     }
 
     /**
@@ -21,6 +23,8 @@ class ModifierGroupController extends Controller
     public function create()
     {
         //
+        return view('modifier_group.create');
+
     }
 
     /**
@@ -29,6 +33,16 @@ class ModifierGroupController extends Controller
     public function store(Request $request)
     {
         //
+
+        $modifierGroup = new ModifierGroup;
+        $modifierGroup->name = $request->input('name');
+        $modifierGroup->is_active = $request->input('is_active');
+        $modifierGroup->is_limit = $request->input('is_limit');
+        $modifierGroup->min_limit = $request->input('limit');
+        $modifierGroup->max_limit = $request->input('limit');
+        $modifierGroup->sort_order = $request->input('sort_order');
+        $modifierGroup->save();
+        return redirect()->back()->with('success', 'Category Created Successfully.');
     }
 
     /**
@@ -45,6 +59,8 @@ class ModifierGroupController extends Controller
     public function edit(ModifierGroup $modifierGroup)
     {
         //
+
+        return view();
     }
 
     /**

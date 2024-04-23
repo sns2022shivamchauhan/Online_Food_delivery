@@ -25,18 +25,18 @@
           "target": "_blank"
         },
         {
-          "url": "/",
+          "url": "/categories",
           "name": "Category",
           "slug": "inventory-category"
         },
         {
-          "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/ecommerce/dashboard",
+          "url": "/mdgroup",
           "name": "Modifier groups",
           "slug": "inventory-Modifier-groups",
           "target": "_blank"
         },
         {
-          "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/logistics/dashboard",
+          "url": "/modifier",
           "name": "Modifiers",
           "slug": "inventory-Modifiers",
           "target": "_blank"

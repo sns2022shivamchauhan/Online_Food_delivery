@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_active')->default(true);
             $table->boolean('is_limit')->default(false);
-            $table->integer('max_limit')->default(12);
-            $table->integer('min_limit')->default(0);
-            $table->integer('sort_order')->default(0);
+            $table->integer('max_limit')->default('12')->nullable();
+            $table->integer('min_limit')->default('0')->nullable();
+            $table->integer('sort_order')->default('0')->nullable();
             $table->timestamps();
         });
     }

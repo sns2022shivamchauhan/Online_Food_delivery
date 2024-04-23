@@ -13,6 +13,8 @@ class ModifierController extends Controller
     public function index()
     {
         //
+         $modifiers  = Modifier::all();
+        return view('modifier.index', compact('modifiers'));
     }
 
     /**
@@ -21,6 +23,8 @@ class ModifierController extends Controller
     public function create()
     {
         //
+        return view('modifier.create');
+
     }
 
     /**
@@ -29,6 +33,14 @@ class ModifierController extends Controller
     public function store(Request $request)
     {
         //
+
+        $modifier = new Modifier;
+        $modifier->name = $request->input('name');
+        $modifier->price = $request->input('price');
+        $modifier->is_active = $request->input('is_active');
+        $modifier->sort_order = $request->input('sort_order');
+        $modifier->save();
+        return redirect()->back()->with('success', 'Category Created Successfully.');
     }
 
     /**
@@ -45,6 +57,8 @@ class ModifierController extends Controller
     public function edit(Modifier $modifier)
     {
         //
+        return view('modifier.edit');
+
     }
 
     /**
