@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
 use App\Models\Category;
+use Illuminate\Support\Facades\Validator;
 
 
 class CategoryController extends Controller
@@ -24,15 +24,12 @@ class CategoryController extends Controller
   public function store(Request $request)
   {
 
-    $validator = Validator::make($request->all(), [
+    $request->validate([
       'name' => 'required|string|max:255',
-      // 'category_status' => 'required|in:active,inactive',
-      // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
-    ]);
-
-    if ($validator->fails()) {
-      return redirect()->back()->withErrors($validator)->withInput();
-    }
+      'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+      'sort_order' => 'nullable|numeric',
+      'is_active' => 'required|boolean',
+  ]);
 
 
     if ($request->hasFile('image')) {
@@ -51,7 +48,6 @@ class CategoryController extends Controller
     // $category->description = $request->input('description');
     $category->is_active = $request->input('is_active');
     $category->sort_order = $request->input('sort_order');
-
     $category->save();
     return redirect()->back()->with('success', 'Category Created Successfully.');
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class ItemController extends Controller
 {
@@ -35,8 +35,9 @@ class ItemController extends Controller
         //
         $validator = validator::make($request->all(), [
           'name' => 'required|string|max:255',
-          // 'category_status' => 'required|in:active,inactive',
-          // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'sort_order' => 'nullable|numeric',
+        'is_active' => 'required|boolean',
         ]);
 
         if ($validator->fails()) {

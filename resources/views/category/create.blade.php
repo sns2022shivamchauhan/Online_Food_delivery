@@ -16,6 +16,15 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('categories.store') }}" enctype="multipart/form-data">
                         @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="categoryImage">Image</label>
                             <div class="col-sm-10">
@@ -67,6 +76,7 @@
                             </div>
                         </div>
                     </form>
+
 
                 </div>
             </div>

@@ -16,11 +16,19 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('items.store') }}" enctype="multipart/form-data">
                         @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="ItemImage">Image</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" id="ItemImage" name="image"
-                                    accept="image/*">
+                                <input type="file" class="form-control" id="ItemImage" name="image" accept="image/*">
                             </div>
                             <div class="col-sm-12 form-group" id="imagePreviewDiv" style="display: none;">
                                 <label>Thumbnail Preview</label>
@@ -38,18 +46,19 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-description">Description</label>
-                          <div class="col-sm-10">
-                              <textarea class="form-control" id="basic-default-description" name="description" rows="3"></textarea>
-                          </div>
-                      </div>
-
-                      <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-price">Price</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="basic-default-price" name="price" placeholder="Enter price">
+                            <label class="col-sm-2 col-form-label" for="basic-default-description">Description</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="basic-default-description" name="description" rows="3"></textarea>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-price">Price</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="basic-default-price" name="price"
+                                    placeholder="Enter price">
+                            </div>
+                        </div>
 
 
                         <div class="row mb-3">
