@@ -42,9 +42,19 @@
                         colspan="1" style="width: 290px;" aria-label="name: activate to sort column ascending"
                         aria-sort="descending">Name</th>
 
-
-                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                         style="width: 107px;" aria-label="Plan: activate to sort column ascending">Image</th>
+
+                    <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                        colspan="1" style="width: 290px;" aria-label="name: activate to sort column ascending"
+                        aria-sort="descending">Description</th>
+
+                    <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                        colspan="1" style="width: 290px;" aria-label="name: activate to sort column ascending"
+                        aria-sort="descending">Price</th>
+
+
+
                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                         style="width: 107px;" aria-label="Plan: activate to sort column ascending">Sort Order</th>
                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -52,7 +62,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories as $category)
+                @foreach ($item as $item)
                     <tr class="odd">
                         <td class="  control" tabindex="0" style="display: none;"></td>
                         <td class="  dt-checkboxes-cell"><input type="checkbox" class="dt-checkboxes form-check-input"></td>
@@ -66,13 +76,15 @@
                                 <div class="d-flex flex-column"><a
                                         href="https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/user/view/account"
                                         class="text-heading text-truncate"><span
-                                            class="fw-medium">{{ $category->name }}</span></a></div>
+                                            class="fw-medium">{{ $item->name }}</span></a></div>
                             </div>
                         </td>
-                        <td><span>{{ $category->imageName }}</span></td>
-                        <td><span class="badge rounded-pill bg-label-success">{{ $category->sort_order }}</span></td>
+                        <td><span>{{ $item->imageName }}</span></td>
+                        <td><span>{{ $item->description }}</span></td>
+                        <td><span>{{ $item->price }}</span></td>
+                        <td><span class="badge rounded-pill bg-label-success">{{ $item->sort_order }}</span></td>
                         <td><span class="badge rounded-pill bg-label-success"
-                                text-capitalized="">{{ $category->is_active }}</span></td>
+                                text-capitalized="">{{ $item->is_active }}</span></td>
 
 
 
@@ -85,16 +97,16 @@
                                         href="https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/user/view/account"
                                         class="dropdown-item"><i
                                             class="mdi mdi-eye-outline me-2"></i><span>View</span></a>
-                                    <a href="{{ route('categories.edit', ['category' => $category->id]) }}"
+                                    <a href="{{ route('items.edit', ['item' => $item->id]) }}"
                                         class="dropdown-item">
                                         <i class="mdi mdi-pencil-outline me-2"></i><span>Edit</span></a>
 
-                                    <form id="delete-form-{{ $category->id }}"
-                                        action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                                    <form id="delete-form-{{ $item->id }}"
+                                        action="{{ route('categories.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <a href="#" class="dropdown-item delete-record"
-                                            data-id="{{ $category->id }}">
+                                            data-id="{{ $item->id }}">
                                             <i class="mdi mdi-delete-outline me-2"></i><span>Delete</span>
                                         </a>
                                     </form>

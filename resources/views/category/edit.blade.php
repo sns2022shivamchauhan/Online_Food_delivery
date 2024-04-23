@@ -3,6 +3,7 @@
 @section('title', ' Horizontal Layouts - Forms')
 
 @section('content')
+
     <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
 
     <!-- Basic Layout & Basic with Icons -->
@@ -14,7 +15,7 @@
         <h5 class="mb-0">Basic Layout</h5> <small class="text-muted float-end">Default label</small>
       </div> --}}
                 <div class="card-body">
-                    <form method="post" action="{{ route('categories.update',$category->id) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('categories.update',$category->id)}}" enctype="multipart/form-data">
                       @csrf
                       @method('put')
                         <div class="row mb-3">

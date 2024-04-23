@@ -89,6 +89,14 @@ class CategoryController extends Controller
     return redirect()->back()->with('success', 'Category updated successfully.');
 }
 
+public function destroy(Category $category)
+{
+    // Delete the category
+    $category->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Category deleted successfully.');
+}
 
 
 
