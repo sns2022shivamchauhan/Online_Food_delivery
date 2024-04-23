@@ -42,7 +42,7 @@
                         colspan="1" style="width: 290px;" aria-label="name: activate to sort column ascending"
                         aria-sort="descending">Name</th>
 
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                         style="width: 107px;" aria-label="Plan: activate to sort column ascending">Image</th>
 
                     <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
@@ -58,7 +58,7 @@
                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                         style="width: 107px;" aria-label="Plan: activate to sort column ascending">Sort Order</th>
                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                        style="width: 94px;" aria-label="Status: activate to sort column ascending">Category Status</th>
+                        style="width: 94px;" aria-label="Status: activate to sort column ascending">Item Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,8 +97,7 @@
                                         href="https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/user/view/account"
                                         class="dropdown-item"><i
                                             class="mdi mdi-eye-outline me-2"></i><span>View</span></a>
-                                    <a href="{{ route('items.edit', ['item' => $item->id]) }}"
-                                        class="dropdown-item">
+                                    <a href="{{ route('items.edit', ['item' => $item->id]) }}" class="dropdown-item">
                                         <i class="mdi mdi-pencil-outline me-2"></i><span>Edit</span></a>
 
                                     <form id="delete-form-{{ $item->id }}"
