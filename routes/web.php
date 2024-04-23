@@ -51,17 +51,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 });
 // category
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
-Route::get('/mdgroup', [ModifierGroupController::class, 'index'])->name('mdgroup.index');
-Route::get('/mdgroup/create', [ModifierGroupController::class, 'create'])->name('mdgroup.create');
-Route::post('/mdgroup/store', [ModifierGroupController::class, 'store'])->name('mdgroup.store');
-Route::get('/mdgroup/{mdgroup}/edit', [ModifierGroupController::class, 'edit'])->name('mdgroup.edit');
-Route::get('/modifier', [ModifierController::class, 'index'])->name('modifier.index');
-Route::get('/modifier/create', [ModifierController::class, 'create'])->name('modifier.create');
-Route::post('/modifier/store', [ModifierController::class, 'store'])->name('modifier.store');
-
-
+Route::resource('categories', CategoryController::class);
+Route::resource('mdgroup', ModifierGroupController::class);
+Route::resource('modifier', ModifierController::class);
+Route::resource('items', ItemController::class);

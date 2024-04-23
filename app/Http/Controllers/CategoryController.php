@@ -56,6 +56,10 @@ class CategoryController extends Controller
     return redirect()->back()->with('success', 'Category Created Successfully.');
 
   }
+    public function show(Category $category)
+    {
+        //
+    }
 
   public function edit(Category $category)
   {

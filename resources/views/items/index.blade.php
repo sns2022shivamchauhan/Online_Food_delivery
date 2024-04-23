@@ -101,7 +101,7 @@
                                         <i class="mdi mdi-pencil-outline me-2"></i><span>Edit</span></a>
 
                                     <form id="delete-form-{{ $item->id }}"
-                                        action="{{ route('categories.destroy', $item->id) }}" method="POST">
+                                        action="{{ route('items.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <a href="#" class="dropdown-item delete-record"
