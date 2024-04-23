@@ -14,8 +14,9 @@
         <h5 class="mb-0">Basic Layout</h5> <small class="text-muted float-end">Default label</small>
       </div> --}}
                 <div class="card-body">
-                    <form method="post" action="{{ route('categories.store') }}" enctype="multipart/form-data">
-                        @csrf
+                    <form method="post" action="{{ route('categories.update',$category->id) }}" enctype="multipart/form-data">
+                      @csrf
+                      @method('put')
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="categoryImage">Image</label>
                             <div class="col-sm-10">

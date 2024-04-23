@@ -15,7 +15,6 @@ return new class extends Migration
         $table->bigIncrements('id');
         $table->string('name');
         $table->string('image')->nullable();
-        $table->longText('description')->nullable(); 
         $table->boolean('is_active')->default(true);
         $table->integer('sort_order')->default(0);
         $table->timestamps();

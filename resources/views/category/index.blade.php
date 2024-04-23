@@ -44,7 +44,7 @@
 
 
                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                        style="width: 107px;" aria-label="Plan: activate to sort column ascending">Is Pizza</th>
+                        style="width: 107px;" aria-label="Plan: activate to sort column ascending"></th>
                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                         style="width: 94px;" aria-label="Status: activate to sort column ascending">Category Status</th>
                 </tr>
