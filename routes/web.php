@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ModifierController;
 use App\Http\Controllers\ModifierGroupController;
 use App\Models\Modifier;
@@ -55,3 +56,5 @@ Route::resource('categories', CategoryController::class);
 Route::resource('mdgroup', ModifierGroupController::class);
 Route::resource('modifier', ModifierController::class);
 Route::resource('items', ItemController::class);
+Route::resource('menu', MenuController::class);
+
