@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Item;
+use App\Models\ItemCategory;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -18,7 +20,9 @@ class CategoryController extends Controller
   //
   public function create()
   {
-    return view('category.create');
+    $items = Item::all();
+    $itemCategories = ItemCategory::all();
+    return view('category.create', compact('items','itemCategories'));
   }
 
   public function store(Request $request)
@@ -29,7 +33,9 @@ class CategoryController extends Controller
       'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
       'sort_order' => 'nullable|numeric',
       'is_active' => 'required|boolean',
-  ]);
+      'items' => 'required|array',
+
+    ]);
 
 
     if ($request->hasFile('image')) {
@@ -49,33 +55,44 @@ class CategoryController extends Controller
     $category->is_active = $request->input('is_active');
     $category->sort_order = $request->input('sort_order');
     $category->save();
-    return redirect()->back()->with('success', 'Category Created Successfully.');
 
-  }
-    public function show(Category $category)
-    {
-        //
+    // Check if categories are selected before attempting to loop over them
+    if ($request->has('items')) {
+      // dd('categories');
+      foreach ($request->input('items') as $itemId) {
+        ItemCategory::create([
+          'category_id' => $category->id,
+          'item_id' => $itemId,
+
+        ]);
+      }
     }
+    return redirect()->back()->with('success', 'Category Created Successfully.');
+  }
+  public function show(Category $category)
+  {
+    //
+  }
 
   public function edit(Category $category)
   {
 
-    return view('category.edit',compact('category'));
+    return view('category.edit', compact('category'));
   }
 
 
 
   public function update(Request $request, Category $category)
-{
+  {
     // Validate the request data
     $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        // Add validation rules for other fields if needed
+      'name' => 'required|string|max:255',
+      // Add validation rules for other fields if needed
     ]);
 
     // If validation fails, redirect back with errors
     if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+      return redirect()->back()->withErrors($validator)->withInput();
     }
 
     // Update the category with the new data
@@ -87,17 +104,14 @@ class CategoryController extends Controller
 
     // Redirect back with a success message
     return redirect()->back()->with('success', 'Category updated successfully.');
-}
+  }
 
-public function destroy(Category $category)
-{
+  public function destroy(Category $category)
+  {
     // Delete the category
     $category->delete();
 
     // Redirect back with a success message
     return redirect()->back()->with('success', 'Category deleted successfully.');
-}
-
-
-
+  }
 }

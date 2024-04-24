@@ -70,6 +70,39 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label text-sm-start">Item Maped</label>
+                          <div class="col-sm-10">
+                            <select class="form-select" id="multiple-select-field1" data-placeholder="Choose Item" name="itemCategory[]"
+                            multiple>
+                            @foreach ($itemCategories as $itemCategory)
+                            <option value="{{ $itemCategory->item_id }}">
+                                @if ($itemCategory->item)
+                                    {{ $itemCategory->item->name }}
+                                @else
+                                    No associated item found
+                                @endif
+                            </option>
+                        @endforeach
+
+                        </select>
+
+                          </div>
+                      </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label text-sm-start">Map Item with Category</label>
+                          <div class="col-sm-10">
+                            <select class="form-select" id="multiple-select-field2" data-placeholder="Choose Item" name="items[]"
+                            multiple>
+                            @foreach ($items as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+
+                          </div>
+                      </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Send</button>
@@ -105,6 +138,25 @@
                     };
                     reader.readAsDataURL(selectedFile);
                 }
+            });
+
+
+            $('#multiple-select-field1').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' :
+                    'style',
+                placeholder: $(this).data('placeholder'),
+                closeOnSelect: false,
+            });
+
+
+
+            $('#multiple-select-field2').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' :
+                    'style',
+                placeholder: $(this).data('placeholder'),
+                closeOnSelect: false,
             });
         });
     </script>

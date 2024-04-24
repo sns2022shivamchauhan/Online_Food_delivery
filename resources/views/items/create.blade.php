@@ -85,6 +85,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label text-sm-start">Category</label>
+                            <div class="col-sm-10">
+                              <select class="form-select" id="multiple-select-field" data-placeholder="Choose Category" name="categories[]"
+                              multiple>
+                              @foreach ($categories as $category)
+                              <option value="{{$category->id}}">{{$category->name}}</option>
+                              @endforeach
+                          </select>
+
+                            </div>
+                        </div>
+
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Send</button>
@@ -120,6 +134,18 @@
                     reader.readAsDataURL(selectedFile);
                 }
             });
+
+
+            $('#multiple-select-field').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' :
+                    'style',
+                placeholder: $(this).data('placeholder'),
+                closeOnSelect: false,
+            });
+
+
+
         });
     </script>
 @endsection
